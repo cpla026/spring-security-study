@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<h2>The Page Of Login</h2>
+
+    <h2>验证码登录</h2>
+    <form action="/authentication/form" method="post">
+        <table>
+            <tr>
+                <td>用户名:</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>密码:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>图形验证码:</td>
+                <td>
+                    <input type="text" name="imageCode">
+                    <!-- 验证码请求级的配置 会覆盖 应用级的配置(即application.properties)-->
+                    <img src="/code/image?width=200">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input name="remember-me" type="checkbox" value="true"/>记住我
+                </td>
+            </tr>
+            <tr>
+                <td><button type="submit" >LOGIN</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <h2>短信登录</h2>
+    <form action="/authentication/mobile" method="post">
+        <table>
+            <tr>
+                <td>手机号:</td>
+                <td><input type="text" name="mobile" value="13012345678"></td>
+            </tr>
+            <tr>
+                <td>短信验证码:</td>
+                <td>
+                    <input type="text" name="smsCode">
+                    <!-- 验证码请求级的配置 会覆盖 应用级的配置(即application.properties)-->
+                    <a href="/code/sms?mobile=13012345678">发送验证码</a>
+                </td>
+            </tr>
+            <tr>
+                <td><button type="submit" >LOGIN</button></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
